@@ -12,6 +12,8 @@ from datetime import date
 from taggit.managers import TaggableManager
 
 # Create your models here.
+class test():
+    pass
 
 ##model for each piece
 #only has img + title
