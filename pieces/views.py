@@ -43,7 +43,7 @@ class PiecesListLargeView(SingleTableView, FilterView):
 
 #Medium:
 #single col
-class PieceListView(LoginRequiredMixin, FilterView):
+class PieceListView(SingleTableMixin, FilterView):
     table_class = PiecesTableMedium
     model = NewPiece
     template_name = "pieces/pieces_list_working_copy.html"
@@ -106,7 +106,7 @@ class PieceDeleteView(DeleteView):
 #link in painting list views
 # upload/drag image field + submit btn
 #creates new Painting Model
-class NewPieceUploadView(LoginRequiredMixin, TemplateView):
+class NewPieceUploadView(SingleTableMixin, TemplateView):
     form = NewUploadForm
     template_name = 'pieces/add_piece_working_copy.html'
     #template_name = 'pieces/new_upload2_crispy_in_use.html'    #has dropbox
@@ -129,7 +129,7 @@ class NewPieceUploadView(LoginRequiredMixin, TemplateView):
 
 
 ##collections
-class CollectionsListView(LoginRequiredMixin, generic.ListView):
+class CollectionsListView(SingleTableMixin, generic.ListView):
     model = NewPiece
     queryset = NewPiece.objects.filter(location='NYC')
     template_name ='pieces/collections_working_copy.html'
