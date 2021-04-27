@@ -43,7 +43,7 @@ class PiecesListLargeView(SingleTableView, FilterView):
 
 #Medium:
 #single col
-class PieceListView(SingleTableMixin, FilterView):
+class PieceListView(LoginRequiredMixin, FilterView):
     table_class = PiecesTableMedium
     model = NewPiece
     template_name = "pieces/pieces_list_working_copy.html"
